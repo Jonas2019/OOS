@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="flex items-center flex-shrink-0 text-white">
         <ChefHat size={32} />
         <span className="font-semibold text-xl tracking-tight ml-2">
-          Company Name
+          Nan Bo Wan
         </span>
       </div>
       <div className="block lg:hidden">
