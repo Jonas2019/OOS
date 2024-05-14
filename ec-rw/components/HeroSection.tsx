@@ -1,7 +1,20 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 const HeroSection = () => {
+  const router = useRouter();
+  const { user } = useUser();
+
+  const handleLogin = () => {
+    if (!user) {
+      router.push("/sign-in?redirect_to=/store");
+    } else {
+      router.push("/store");
+    }
+  };
   return (
     <div className="relative w-full h-screen">
       <div className="relative w-full h-full">
@@ -32,6 +45,7 @@ const HeroSection = () => {
         <Button
           className="bg-emerald-500 hover:bg-emerald-700 text-white text-lg px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
           variant="secondary"
+          onClick={handleLogin}
         >
           Start Order
         </Button>
